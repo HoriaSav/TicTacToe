@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Main {
     private static Boolean[][] matrix = new Boolean[3][3];
 
@@ -9,10 +11,22 @@ public class Main {
     private static void runGame() {
         int rounds = 0;
         while (rounds < 9) {
-            UserMove userMove = UserInputValidator.getUserMove();
+            UserMove userMove = new UserMove();
+            System.out.println(CliMessages.getMoveInput());
+            userMove.setCol(getMoveCoordinate());
+            userMove.setRow(getMoveCoordinate());
+            while (!UserInputValidator.isValidMove(userMove, matrix)) {
+                System.out.println(CliMessages.getMoveInput());
+                userMove.setCol(getMoveCoordinate());
+                userMove.setRow(getMoveCoordinate());
+            }
             matrix[userMove.getRow()][userMove.getCol()] = true;
             rounds++;
             printMatrix();
+            if (UserInputValidator.checkGameOver(matrix)) {
+                System.out.println("User " + (rounds % 2 + 1) + " won the game!");
+                break;
+            }
         }
     }
 
@@ -27,10 +41,24 @@ public class Main {
                 } else {
                     item = "[ ]";
                 }
-                System.out.print(item + "\t");
+                if (j < matrix[i].length - 1) {
+                    System.out.print(item + " | ");
+                } else {
+                    System.out.print(item);
+                }
             }
-            System.out.println();
+            if (i < matrix.length - 1) {
+                System.out.println("\n---------------");
+            }
+            else {
+                System.out.println();
+            }
         }
         System.out.println();
+    }
+
+    private static int getMoveCoordinate() {
+        Scanner scan = new Scanner(System.in);
+        return scan.nextInt();
     }
 }
