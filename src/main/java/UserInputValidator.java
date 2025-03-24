@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class UserInputValidator {
 
     public static boolean isValidMove(UserMove move, Boolean[][] matrix) {
-        if (!isOutOfBounds(move, matrix.length-1, matrix[0].length-1) && isAvailable(move, matrix)) {
+        if (!isOutOfBounds(move, matrix.length - 1, matrix[0].length - 1) && isAvailable(move, matrix)) {
             return true;
         }
         return false;
@@ -40,6 +40,9 @@ public class UserInputValidator {
                         return true;
                     }
                     if (i < matrix.length - 2 && j < matrix[i].length - 2 && matrix[i + 1][j + 1] == matrix[i][j] && matrix[i + 2][j + 2] == matrix[i][j]) {
+                        return true;
+                    }
+                    if (j - 2 >= 0 && matrix[i +1][j - 1] == matrix[i][j] && matrix[i + 2][j - 2] == matrix[i][j]) {
                         return true;
                     }
                 }
