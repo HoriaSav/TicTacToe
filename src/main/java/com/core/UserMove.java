@@ -1,3 +1,5 @@
+package com.core;
+
 public class UserMove {
     private int row;
     private int col;

@@ -1,3 +1,5 @@
+package com.core;
+
 public class CliMessages {
 
     public static String wrongMove(int moveValue, int maxValue, String axis) {
@@ -12,15 +14,19 @@ public class CliMessages {
         return "Enter move values for x and y coordinates";
     }
 
-    public static String replayGame(){
+    public static String replayGame() {
         return "Replay game: [1 - Yes : 2 - No]";
     }
 
-    public static String wrongInput(){
+    public static String wrongInput() {
         return "Wrong input. Try again";
     }
 
-    public static String selectLobbyAction(){
+    public static String selectLobbyAction() {
         return "Select lobby action: [0 - play game : 1 - create players]";
+    }
+
+    public static String playerMenuAction() {
+        return "Select action: [0 - create new player : 1 - select 2 existing players]";
     }
 }
