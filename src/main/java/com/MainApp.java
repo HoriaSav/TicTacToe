@@ -9,7 +9,7 @@ public class MainApp extends Application {
     @Override
     public void start(Stage primaryStage) {
         FxmlFileOpener fxmlFileOpener = new FxmlFileOpener();
-        fxmlFileOpener.openFileOnAction("/fxml/tictactoe_table.fxml");
+        fxmlFileOpener.openFileOnAction("/fxml/appBox.fxml");
     }
 
     public static void main(String[] args) {

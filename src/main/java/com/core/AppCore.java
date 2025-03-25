@@ -25,4 +25,8 @@ public class AppCore {
     public boolean isGameOver() {
         return UserInputValidator.isGameOver(matrix);
     }
+
+    public int getRounds() {
+        return rounds;
+    }
 }

@@ -8,12 +8,12 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ui.controller.TicTacToeTableController">
+<AnchorPane prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ui.controller.GameTableController">
     <children>
         <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="300.0">
             <children>
                 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="96.0" spacing="15.0">
-                    <Button contentDisplay="CENTER" graphicTextGap="0.0" onAction="#addMove" style="-fx-padding: 0; -fx-background-color: transparent;" text="1" textAlignment="CENTER" textFill="TRANSPARENT">
+                    <Button contentDisplay="CENTER" graphicTextGap="0.0" onAction="#addMove" style="-fx-padding: 0; -fx-background-color: transparent;" text="0" textAlignment="CENTER" textFill="TRANSPARENT">
                         <graphic>
                             <ImageView fitHeight="70" fitWidth="70">
                                 <Image url="@../icons/transparent.png" />
@@ -21,7 +21,7 @@
                         </graphic>
                     </Button>
                     <Separator prefWidth="200.0" />
-                    <Button contentDisplay="CENTER" graphicTextGap="0.0" onAction="#addMove" style="-fx-padding: 0; -fx-background-color: transparent;" text="4" textAlignment="CENTER" textFill="TRANSPARENT">
+                    <Button contentDisplay="CENTER" graphicTextGap="0.0" onAction="#addMove" style="-fx-padding: 0; -fx-background-color: transparent;" text="3" textAlignment="CENTER" textFill="TRANSPARENT">
                         <graphic>
                             <ImageView fitHeight="70" fitWidth="70">
                                 <Image url="@../icons/transparent.png" />
@@ -29,7 +29,7 @@
                         </graphic>
                     </Button>
                     <Separator prefWidth="200.0" />
-                    <Button contentDisplay="CENTER" graphicTextGap="0.0" onAction="#addMove" style="-fx-padding: 0; -fx-background-color: transparent;" text="7" textAlignment="CENTER" textFill="TRANSPARENT">
+                    <Button contentDisplay="CENTER" graphicTextGap="0.0" onAction="#addMove" style="-fx-padding: 0; -fx-background-color: transparent;" text="6" textAlignment="CENTER" textFill="TRANSPARENT">
                         <graphic>
                             <ImageView fitHeight="70" fitWidth="70">
                                 <Image url="@../icons/transparent.png" />
@@ -37,6 +37,34 @@
                         </graphic>
                     </Button>
                 </VBox>
+                <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="96.0" spacing="15.0">
+               <children>
+                   <Button contentDisplay="CENTER" graphicTextGap="0.0" onAction="#addMove" style="-fx-padding: 0; -fx-background-color: transparent;" text="1" textAlignment="CENTER" textFill="TRANSPARENT">
+                       <graphic>
+                           <ImageView fitHeight="70" fitWidth="70">
+                               <Image url="@../icons/transparent.png" />
+                           </ImageView>
+                       </graphic>
+                   </Button>
+                  <Separator prefWidth="200.0" />
+                   <Button contentDisplay="CENTER" graphicTextGap="0.0" onAction="#addMove" style="-fx-padding: 0; -fx-background-color: transparent;" text="4" textAlignment="CENTER" textFill="TRANSPARENT">
+                       <graphic>
+                           <ImageView fitHeight="70" fitWidth="70">
+                               <Image url="@../icons/transparent.png" />
+                           </ImageView>
+                       </graphic>
+                   </Button>
+                  <Separator prefWidth="200.0" />
+                   <Button contentDisplay="CENTER" graphicTextGap="0.0" onAction="#addMove" style="-fx-padding: 0; -fx-background-color: transparent;" text="7" textAlignment="CENTER" textFill="TRANSPARENT">
+                       <graphic>
+                           <ImageView fitHeight="70" fitWidth="70">
+                               <Image url="@../icons/transparent.png" />
+                           </ImageView>
+                       </graphic>
+                   </Button>
+               </children>
+            </VBox>
                 <Separator orientation="VERTICAL" prefHeight="200.0" />
             <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="96.0" spacing="15.0">
                <children>
@@ -57,34 +85,6 @@
                    </Button>
                   <Separator prefWidth="200.0" />
                    <Button contentDisplay="CENTER" graphicTextGap="0.0" onAction="#addMove" style="-fx-padding: 0; -fx-background-color: transparent;" text="8" textAlignment="CENTER" textFill="TRANSPARENT">
-                       <graphic>
-                           <ImageView fitHeight="70" fitWidth="70">
-                               <Image url="@../icons/transparent.png" />
-                           </ImageView>
-                       </graphic>
-                   </Button>
-               </children>
-            </VBox>
-                <Separator orientation="VERTICAL" prefHeight="200.0" />
-            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="96.0" spacing="15.0">
-               <children>
-                   <Button contentDisplay="CENTER" graphicTextGap="0.0" onAction="#addMove" style="-fx-padding: 0; -fx-background-color: transparent;" text="3" textAlignment="CENTER" textFill="TRANSPARENT">
-                       <graphic>
-                           <ImageView fitHeight="70" fitWidth="70">
-                               <Image url="@../icons/transparent.png" />
-                           </ImageView>
-                       </graphic>
-                   </Button>
-                  <Separator prefWidth="200.0" />
-                   <Button contentDisplay="CENTER" graphicTextGap="0.0" onAction="#addMove" style="-fx-padding: 0; -fx-background-color: transparent;" text="6" textAlignment="CENTER" textFill="TRANSPARENT">
-                       <graphic>
-                           <ImageView fitHeight="70" fitWidth="70">
-                               <Image url="@../icons/transparent.png" />
-                           </ImageView>
-                       </graphic>
-                   </Button>
-                  <Separator prefWidth="200.0" />
-                   <Button contentDisplay="CENTER" graphicTextGap="0.0" onAction="#addMove" style="-fx-padding: 0; -fx-background-color: transparent;" text="9" textAlignment="CENTER" textFill="TRANSPARENT">
                        <graphic>
                            <ImageView fitHeight="70" fitWidth="70">
                                <Image url="@../icons/transparent.png" />

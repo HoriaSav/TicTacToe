@@ -21,7 +21,7 @@ public class FxmlFileOpener {
             Stage stage = new Stage();
             stage.initStyle(StageStyle.UNDECORATED);
 
-            Scene scene = new Scene(fxmlLoader.load(), 300, 300);
+            Scene scene = new Scene(fxmlLoader.load(), 300, 400);
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {
@@ -36,7 +36,7 @@ public class FxmlFileOpener {
             Parent page = loader.load();  // JavaFX will automatically use the fx:controller from the FXML
             stackPane.getChildren().setAll(page);  // Replace content in StackPane
 
-            System.out.println("Loaded FXML: " + filename);
+//            System.out.println("Loaded FXML: " + filename);
         } catch (IOException e) {
             System.out.println("Error loading FXML: " + filename);
             e.printStackTrace();
