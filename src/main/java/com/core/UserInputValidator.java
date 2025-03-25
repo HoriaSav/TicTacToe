@@ -3,13 +3,6 @@ package com.core;
 public class UserInputValidator {
 
     public static boolean isValidMove(int position, Boolean[] matrix) {
-        if (isAvailable(position, matrix)) {
-            return true;
-        }
-        return false;
-    }
-
-    private static boolean isAvailable(int position, Boolean[] matrix) {
         if (matrix[position] == null) {
             return true;
         }

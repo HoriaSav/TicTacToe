@@ -1,10 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="300.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1">
-  <content>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="300.0" prefWidth="283.0" />
-  </content>
-</ScrollPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ui.controller.PlayerMenuController">
+    <top>
+        <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+            <children>
+                <VBox prefHeight="150.0" prefWidth="150.0" spacing="5.0">
+               <children>
+                  <Label text="Select players:">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="player1UsernameLabel" text="Player 1" />
+                  <Label fx:id="player1WinrateLabel" text="W : L -&gt; 0.50" />
+                  <Label fx:id="player2UsernameLabel" text="Player 2" />
+                  <Label fx:id="player2WinrateLabel" text="W : L -&gt; 0.48" />
+                  <Button mnemonicParsing="false" onAction="#playGame" text="Play" />
+               </children>
+               <padding>
+                  <Insets left="5.0" top="5.0" />
+               </padding></VBox>
+                <VBox prefHeight="150.0" prefWidth="150.0" spacing="5.0">
+               <children>
+                  <Label text="Create New User:" />
+                  <TextField fx:id="usernameTextField" promptText="Username" />
+                  <TextField fx:id="passwordTextField" promptText="WTF field" />
+                  <Button mnemonicParsing="false" onAction="#createNewUser" text="Create" />
+               </children>
+               <padding>
+                  <Insets right="5.0" top="5.0" />
+               </padding></VBox>
+            </children>
+        </HBox>
+    </top>
+    <bottom>
+        <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+
+            <VBox fx:id="playerListVbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="150.0"
+                  minWidth="-Infinity" prefWidth="284.0">
+
+            </VBox>
+        </ScrollPane>
+    </bottom>
+</BorderPane>

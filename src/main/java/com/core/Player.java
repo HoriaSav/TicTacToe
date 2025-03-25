@@ -1,24 +1,16 @@
 package com.core;
 
 public class Player {
-    private String userName;
-    private String password;
+    private String username;
     private int gamesWon = 0;
     private int gamesLost = 0;
     private int gamesDraw = 0;
     private int gameId;
 
-    public Player(String userName, String password) {
-        this.userName = userName;
-        this.password = password;
-    }
+    public Player(){}
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public Player(String userName) {
+        this.username = userName;
     }
 
     public int getGamesWon() {
@@ -45,12 +37,12 @@ public class Player {
         this.gamesDraw = gamesDraw;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String userName) {
+        this.username = userName;
     }
 
     public int getGameId() {

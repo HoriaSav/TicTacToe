@@ -1,6 +1,6 @@
 package com.ui.controller;
 
-import com.ui.tools.ControllerContext;
+import com.ui.tools.ContextController;
 import com.ui.tools.FxmlFileOpener;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -19,8 +19,8 @@ public class AppBoxController {
 
     public void initialize() {
         loadPage();
-        ControllerContext.setMainStack(stackPane); // Register stackPane
-        ControllerContext.setErrorLabel(errorLabel);
+        ContextController.setMainStack(stackPane); // Register stackPane
+        ContextController.setErrorLabel(errorLabel);
     }
 
     private void loadPage() {
