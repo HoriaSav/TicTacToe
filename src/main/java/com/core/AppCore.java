@@ -49,4 +49,8 @@ public class AppCore {
     public void setActivePlayer(String username) {
         playerManager.setActivePlayer(username);
     }
+
+    public void resetActivePlayer(int playerNumber) {
+        playerManager.resetActivePlayer(playerNumber);
+    }
 }

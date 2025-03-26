@@ -12,10 +12,10 @@
     <children>
         <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="300.0">
             <children>
-                <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="96.0" spacing="15.0">
+                <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="96.0" spacing="8.0">
                     <Button contentDisplay="CENTER" graphicTextGap="0.0" onAction="#addMove" style="-fx-padding: 0; -fx-background-color: transparent;" text="0" textAlignment="CENTER" textFill="TRANSPARENT">
                         <graphic>
-                            <ImageView fitHeight="70" fitWidth="70">
+                            <ImageView fitHeight="85.0" fitWidth="85.0">
                                 <Image url="@../icons/transparent.png" />
                             </ImageView>
                         </graphic>
@@ -23,7 +23,7 @@
                     <Separator prefWidth="200.0" />
                     <Button contentDisplay="CENTER" graphicTextGap="0.0" onAction="#addMove" style="-fx-padding: 0; -fx-background-color: transparent;" text="3" textAlignment="CENTER" textFill="TRANSPARENT">
                         <graphic>
-                            <ImageView fitHeight="70" fitWidth="70">
+                            <ImageView fitHeight="85.0" fitWidth="85.0">
                                 <Image url="@../icons/transparent.png" />
                             </ImageView>
                         </graphic>
@@ -31,7 +31,7 @@
                     <Separator prefWidth="200.0" />
                     <Button contentDisplay="CENTER" graphicTextGap="0.0" onAction="#addMove" style="-fx-padding: 0; -fx-background-color: transparent;" text="6" textAlignment="CENTER" textFill="TRANSPARENT">
                         <graphic>
-                            <ImageView fitHeight="70" fitWidth="70">
+                            <ImageView fitHeight="85.0" fitWidth="85.0">
                                 <Image url="@../icons/transparent.png" />
                             </ImageView>
                         </graphic>

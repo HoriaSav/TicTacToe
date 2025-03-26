@@ -1,24 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ui.controller.PlayerPanelController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ui.controller.PlayerPanelController">
     <top>
         <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="300.0" BorderPane.alignment="CENTER">
             <children>
-                <VBox prefHeight="150.0" prefWidth="150.0" spacing="5.0">
+                <VBox prefHeight="150.0" prefWidth="150.0" spacing="2.0">
                <children>
                   <Label text="Select players:">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label fx:id="player1UsernameLabel" text="Player 1" />
+                  <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0">
+                     <children>
+                        <Label fx:id="player1UsernameLabel" text="Player 1" />
+                        <Button mnemonicParsing="false" onAction="#eliminatePlayer1" prefHeight="15.0" text="-" />
+                     </children>
+                  </HBox>
                   <Label fx:id="player1WinrateLabel" text="W : L -&gt; 0.50" />
-                  <Label fx:id="player2UsernameLabel" text="Player 2" />
+                  <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0">
+                     <children>
+                        <Label fx:id="player2UsernameLabel" text="Player 2" />
+                        <Button mnemonicParsing="false" onAction="#eliminatePlayer2" prefHeight="15.0" text="-" />
+                     </children>
+                  </HBox>
                   <Label fx:id="player2WinrateLabel" text="W : L -&gt; 0.48" />
                   <Button mnemonicParsing="false" onAction="#playGame" text="Play" />
                </children>
@@ -41,8 +56,7 @@
     <bottom>
         <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="300.0" BorderPane.alignment="CENTER">
 
-            <VBox fx:id="playerListVbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="150.0"
-                  minWidth="-Infinity" prefWidth="284.0">
+            <VBox fx:id="playerListVbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="150.0" minWidth="-Infinity" prefWidth="284.0">
 
             </VBox>
         </ScrollPane>

@@ -32,7 +32,8 @@ public class PlayerPanelController {
     public void initialize() {
         loadPlayersInUI();
         ContextController.setPlayerInfoLabels(player1UsernameLabel, player2UsernameLabel, player1WinrateLabel, player2WinrateLabel);
-        ContextController.getAppCore().setActivePlayer(null);
+        ContextController.getAppCore().resetActivePlayer(1);
+        ContextController.getAppCore().resetActivePlayer(2);
     }
 
     private void loadPlayersInUI() {
@@ -57,5 +58,15 @@ public class PlayerPanelController {
         } else {
             System.out.println("Main StackPane not found.");
         }
+    }
+
+    @FXML
+    private void eliminatePlayer1(){
+        ContextController.getAppCore().resetActivePlayer(1);
+    }
+
+    @FXML
+    private void eliminatePlayer2(){
+        ContextController.getAppCore().resetActivePlayer(2);
     }
 }

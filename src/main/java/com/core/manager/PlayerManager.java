@@ -65,40 +65,44 @@ public class PlayerManager {
     }
 
     public void setActivePlayer(String username) {
-        if(username == null) {
-            currentPlayers[0] = null;
-            currentPlayers[1] = null;
-        }
-        else {
-            try {
-                if (currentPlayers[0] == null) {
-                    currentPlayers[0] = getPlayer(username);
-                    currentPlayers[0].setGameId(1);
-                    float winrate;
-                    int gamesPlayed = currentPlayers[0].getGamesWon() + currentPlayers[0].getGamesLost() + currentPlayers[0].getGamesDraw();
-                    if (gamesPlayed == 0) {
-                        winrate = 0.0f;
-                    } else {
-                        float gamesWon = currentPlayers[0].getGamesWon();
-                        winrate = gamesWon / (gamesPlayed);
-                    }
-                    ContextController.setPlayer1InfoDetails(username, (winrate + ""));
-                } else if(currentPlayers[1] == null) {
-                    currentPlayers[1] = getPlayer(username);
-                    currentPlayers[1].setGameId(2);
-                    float winrate;
-                    int gamesPlayed = currentPlayers[1].getGamesWon() + currentPlayers[1].getGamesLost() + currentPlayers[1].getGamesDraw();
-                    if (gamesPlayed == 0) {
-                        winrate = 0.0f;
-                    } else {
-                        float gamesWon = currentPlayers[1].getGamesWon();
-                        winrate = gamesWon / gamesPlayed;
-                    }
-                    ContextController.setPlayer2InfoDetails(username, (winrate + ""));
+        try {
+            if (currentPlayers[0] == null) {
+                currentPlayers[0] = getPlayer(username);
+                currentPlayers[0].setGameId(1);
+                float winrate;
+                int gamesPlayed = currentPlayers[0].getGamesWon() + currentPlayers[0].getGamesLost() + currentPlayers[0].getGamesDraw();
+                if (gamesPlayed == 0) {
+                    winrate = 0.0f;
+                } else {
+                    float gamesWon = currentPlayers[0].getGamesWon();
+                    winrate = gamesWon / (gamesPlayed);
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
+                ContextController.setPlayer1InfoDetails(username, (winrate + ""));
+            } else if (currentPlayers[1] == null) {
+                currentPlayers[1] = getPlayer(username);
+                currentPlayers[1].setGameId(2);
+                float winrate;
+                int gamesPlayed = currentPlayers[1].getGamesWon() + currentPlayers[1].getGamesLost() + currentPlayers[1].getGamesDraw();
+                if (gamesPlayed == 0) {
+                    winrate = 0.0f;
+                } else {
+                    float gamesWon = currentPlayers[1].getGamesWon();
+                    winrate = gamesWon / gamesPlayed;
+                }
+                ContextController.setPlayer2InfoDetails(username, (winrate + ""));
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void resetActivePlayer(int playerNumber) {
+        if(playerNumber == 1) {
+            ContextController.setPlayer1InfoDetails("Guest", "unknown");
+            currentPlayers[0]=null;
+        } else if (playerNumber == 2) {
+            ContextController.setPlayer2InfoDetails("Guest", "unknown");
+            currentPlayers[1]=null;
         }
     }
 
