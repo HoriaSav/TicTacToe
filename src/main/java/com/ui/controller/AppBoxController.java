@@ -1,5 +1,6 @@
 package com.ui.controller;
 
+import com.core.AppCore;
 import com.ui.tools.ContextController;
 import com.ui.tools.FxmlFileOpener;
 import javafx.application.Platform;
@@ -21,10 +22,11 @@ public class AppBoxController {
         loadPage();
         ContextController.setMainStack(stackPane); // Register stackPane
         ContextController.setErrorLabel(errorLabel);
+        ContextController.setAppCore(new AppCore());
     }
 
     private void loadPage() {
-        FxmlFileOpener.loadFrame(stackPane, "main_menu.fxml");
+        FxmlFileOpener.loadFrame(stackPane, "welcome_panel.fxml");
     }
 
     @FXML

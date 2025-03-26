@@ -1,38 +1,52 @@
 package com.core;
 
-public class AppCore {
-    private final Boolean[] matrix;
+import com.core.manager.GameManager;
+import com.core.manager.PlayerManager;
 
-    private int rounds = 0;
+import java.util.List;
+
+public class AppCore {
+    private GameManager gameManager;
+    private PlayerManager playerManager;
 
     public AppCore() {
-        matrix = new Boolean[9];
+        gameManager = new GameManager();
+        playerManager = new PlayerManager();
     }
 
     public void addMove(int position, Player player) throws Exception {
-        if (UserInputValidator.isValidMove(position, matrix)) {
-            if(player.getGameId() == 1){
-                matrix[position] = true;
-                System.out.println("player 1 moved");
-            }
-            else {
-                matrix[position] = false;
-                System.out.println("player 2 moved");
-            }
-            rounds++;
-        }
-        else {
-            throw new Exception("Invalid move");
-        }
+        gameManager.addMove(position, player);
     }
-
 
     public boolean isGameOver() {
-        return UserInputValidator.isGameOver(matrix);
+        return gameManager.isGameOver();
     }
 
-    public int getRounds() {
-        return rounds;
+    public int getRound() {
+        return gameManager.getRound();
     }
 
+    public void createNewUser(String username) {
+        playerManager.createNewUser(username);
+    }
+
+    public void deletePlayer(String username) {
+        playerManager.deletePlayer(username);
+    }
+
+    public void updatePlayer(Boolean status, String username) {
+        playerManager.updatePlayers(status, username);
+    }
+
+    public List<Player> getPlayerList() {
+        return playerManager.getPlayerList();
+    }
+
+    public Player [] getActivePlayers() {
+        return playerManager.getActivePlayers();
+    }
+
+    public void setActivePlayer(String username) {
+        playerManager.setActivePlayer(username);
+    }
 }

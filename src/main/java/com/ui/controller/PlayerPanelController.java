@@ -11,7 +11,7 @@ import javafx.scene.layout.VBox;
 
 import java.util.List;
 
-public class PlayerMenuController {
+public class PlayerPanelController {
     @FXML
     private Label player1UsernameLabel;
     @FXML
@@ -30,46 +30,30 @@ public class PlayerMenuController {
     private List<Player> playerList;
 
     public void initialize() {
-        loadPlayerArrayList();
+        loadPlayersInUI();
+        ContextController.setPlayerInfoLabels(player1UsernameLabel, player2UsernameLabel, player1WinrateLabel, player2WinrateLabel);
+        ContextController.getAppCore().setActivePlayer(null);
     }
 
-    private void loadPlayers() {
+    private void loadPlayersInUI() {
+        playerList = ContextController.getAppCore().getPlayerList();
         playerListVbox.getChildren().clear();
         for (Player player : playerList) {
             FxmlFileOpener.addCustomizedFXMLTo(playerListVbox, "playerItem.fxml", (PlayerItemController controller) -> controller.setPlayerDetails(player));
         }
     }
 
-    private void loadPlayerArrayList() {
-        playerList = ContextController.readFile();
-        loadPlayers();
-    }
-
     @FXML
     public void createNewUser() {
-        System.out.println("Creating new user "+usernameTextField.getText());
-        Player newPlayer = new Player(usernameTextField.getText());
-        ContextController.addPlayer(newPlayer);
-        ContextController.writeToFile();
-        loadPlayerArrayList();
+        ContextController.getAppCore().createNewUser(usernameTextField.getText());
+        loadPlayersInUI();
     }
 
     @FXML
-    public void selectUser() {
-
-    }
-
-    @FXML
-    public void playGame() {
-        ContextController.setPlayer1(player1UsernameLabel.getText());
-        ContextController.setPlayer2(player2UsernameLabel.getText());
-        openGame();
-    }
-
-    private void openGame() {
+    private void playGame() {
         StackPane targetStack = ContextController.getMainStack();
         if (targetStack != null) {
-            FxmlFileOpener.loadFrame(targetStack, "game_table.fxml");
+            FxmlFileOpener.loadFrame(targetStack, "game_panel.fxml");
         } else {
             System.out.println("Main StackPane not found.");
         }

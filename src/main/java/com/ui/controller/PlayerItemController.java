@@ -1,6 +1,7 @@
 package com.ui.controller;
 
 import com.core.Player;
+import com.ui.tools.ContextController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
@@ -17,7 +18,12 @@ public class PlayerItemController {
 
     public void setPlayerDetails(Player player) {
         usernameLabel.setText(player.getUsername());
-        gamesPlayedLabel.setText(String.valueOf(player.getGamesWon()+player.getGamesLost()+player.getGamesDraw()));
+        gamesPlayedLabel.setText(String.valueOf(player.getGamesWon() + player.getGamesLost() + player.getGamesDraw()));
         gamesWonLabel.setText(String.valueOf(player.getGamesWon()));
+    }
+
+    @FXML
+    public void addPlayer() {
+        ContextController.getAppCore().setActivePlayer(usernameLabel.getText());
     }
 }
