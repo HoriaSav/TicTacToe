@@ -1,29 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ui.controller.MainPanelController">
+<AnchorPane prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ui.controller.MainPanelController">
    <children>
       <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="300.0" spacing="15.0">
          <children>
-            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="300.0" spacing="30.0">
-               <children>
-                  <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="100.0">
-                     <children>
-                        <Label text="Player1: Name1" />
-                        <Label text="score: " />
-                     </children>
-                  </VBox>
-                  <VBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="100.0">
-                     <children>
-                        <Label text="Player2: name2" />
-                        <Label text="score: " />
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="300.0" spacing="30.0" />
             <Label text="Tic Tac Toe">
                <font>
                   <Font name="System Bold" size="24.0" />
