@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ui.controller.MainPanelController">
+<AnchorPane prefHeight="300.0" prefWidth="300.0" stylesheets="@gameStyles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ui.controller.MainPanelController">
    <children>
       <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="300.0" spacing="15.0">
          <children>
@@ -19,8 +19,8 @@
             </Label>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0">
                <children>
-                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loadPlayerSelectionPanel" prefHeight="25.0" prefWidth="100.0" text="Play" />
-                  <Button mnemonicParsing="false" onAction="#loadSettingsPanel" prefHeight="25.0" prefWidth="100.0" text="Settings" />
+                  <Button mnemonicParsing="false" onAction="#loadPlayerSelectionPanel" prefHeight="25.0" prefWidth="100.0" styleClass="rounded-button" text="Play" />
+                  <Button mnemonicParsing="false" onAction="#loadSettingsPanel" prefHeight="25.0" prefWidth="100.0" styleClass="rounded-button" text="Settings" />
                </children>
             </VBox>
          </children>

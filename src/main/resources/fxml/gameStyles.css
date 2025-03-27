@@ -1,0 +1,45 @@
+.rounded-button {
+    -fx-background-color: linear-gradient(to bottom, #f0f0f0, #dcdcdc);
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0.2, 0, 1);
+    -fx-font-size: 10px;
+    -fx-text-fill: #333;
+    -fx-font-weight: normal;
+    -fx-cursor: hand;
+    -fx-border-color: #b0b0b0;
+    -fx-border-width: 1;
+}
+
+.rounded-button:hover {
+    -fx-background-color: #d9d9d9;
+}
+
+.rounded-button:pressed {
+    -fx-background-color: linear-gradient(to bottom, #dcdcdc, #bcbcbc);
+    -fx-effect: dropshadow(gaussian, #00ff00, 10, 0.5, 0, 0);
+}
+
+.window-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-border-color: transparent;
+    -fx-font-size: 12px;
+}
+
+.window-button:hover {
+    -fx-background-color: #d9d9d9;
+}
+
+/* Close button (Red on hover) */
+.window-button-close {
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-border-color: transparent;
+    -fx-font-size: 12px;
+}
+
+.window-button-close:hover {
+    -fx-background-color: #ff4a4a;
+}
