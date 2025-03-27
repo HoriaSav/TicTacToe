@@ -66,7 +66,9 @@ public class PlayerPanelController {
     private void playGame() {
         StackPane targetStack = ContextController.getMainStack();
         if (targetStack != null) {
-            FxmlFileOpener.loadFrame(targetStack, "game_panel.fxml");
+            String newPanel = "game_panel.fxml";
+            ContextController.setLastAccessedFile("welcome_panel.fxml");
+            FxmlFileOpener.loadFrame(targetStack, newPanel);
         } else {
             System.out.println("Main StackPane not found.");
         }

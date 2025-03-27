@@ -13,7 +13,9 @@ public class MainPanelController {
     private void loadPlayerSelectionPanel() {
         StackPane targetStack = ContextController.getMainStack();
         if (targetStack != null) {
-            FxmlFileOpener.loadFrame(targetStack, "player_selection_panel.fxml");
+            String newPanel = "player_selection_panel.fxml";
+            ContextController.setLastAccessedFile("welcome_panel.fxml");
+            FxmlFileOpener.loadFrame(targetStack, newPanel);
         } else {
             System.out.println("Main StackPane not found.");
         }
@@ -22,7 +24,9 @@ public class MainPanelController {
     private void loadSettingsPanel() {
         StackPane targetStack = ContextController.getMainStack();
         if (targetStack != null) {
-            FxmlFileOpener.loadFrame(targetStack, "settings.fxml");
+            String newPanel = "settings.fxml";
+            ContextController.setLastAccessedFile("welcome_panel.fxml");
+            FxmlFileOpener.loadFrame(targetStack, newPanel);
         } else {
             System.out.println("Main StackPane not found.");
         }

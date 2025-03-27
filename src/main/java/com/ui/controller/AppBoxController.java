@@ -19,29 +19,38 @@ public class AppBoxController {
     private Label errorLabel;
 
     public void initialize() {
-        loadPage();
+        loadWelcomePanel();
         ContextController.setMainStack(stackPane); // Register stackPane
         ContextController.setErrorLabel(errorLabel);
         ContextController.setAppCore(new AppCore());
+        ContextController.setLastAccessedFile("welcome_panel.fxml");
     }
 
-    private void loadPage() {
-        FxmlFileOpener.loadFrame(stackPane, "welcome_panel.fxml");
+    private void loadWelcomePanel() {
+        String newPanel = "welcome_panel.fxml";
+        FxmlFileOpener.loadFrame(stackPane, newPanel);
     }
 
     @FXML
-    private void minimizeWindow(ActionEvent event){
+    private void goBackToLastPanel() {
+        if (ContextController.getLastAccessedFile() != null) {
+            FxmlFileOpener.loadFrame(stackPane, ContextController.getLastAccessedFile());
+        }
+    }
+
+    @FXML
+    private void minimizeWindow(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setIconified(true);
     }
 
     @FXML
-    private void closeApp(){
+    private void closeApp() {
         Platform.exit();
     }
 
     @FXML
-    private void toggleMaximize(ActionEvent event){
+    private void toggleMaximize(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setMaximized(!stage.isMaximized());
     }

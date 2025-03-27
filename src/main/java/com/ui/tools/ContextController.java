@@ -16,6 +16,8 @@ public class ContextController {
     private static Label player1WinrateLabel;
     private static Label player2WinrateLabel;
 
+    private static String lastAccessedFile;
+
     public static void setMainStack(StackPane stackPane) {
         mainStack = stackPane;
     }
@@ -55,5 +57,13 @@ public class ContextController {
     public static void setPlayer2InfoDetails(String username2, String winrate2) {
         ContextController.player2UsernameLabel.setText(username2);
         ContextController.player2WinrateLabel.setText(winrate2);
+    }
+
+    public static String getLastAccessedFile() {
+        return lastAccessedFile;
+    }
+
+    public static void setLastAccessedFile(String lastAccessedFile) {
+        ContextController.lastAccessedFile = lastAccessedFile;
     }
 }
