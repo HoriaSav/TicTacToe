@@ -4,7 +4,9 @@ import com.core.Player;
 import com.ui.tools.ContextController;
 import com.ui.tools.FxmlFileOpener;
 import javafx.fxml.FXML;
+import javafx.geometry.Orientation;
 import javafx.scene.control.Label;
+import javafx.scene.control.Separator;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -39,9 +41,19 @@ public class PlayerPanelController {
     private void loadPlayersInUI() {
         playerList = ContextController.getAppCore().getPlayerList();
         playerListVbox.getChildren().clear();
+        FxmlFileOpener.addCustomizedFXMLTo(playerListVbox, "playerListColumnDef.fxml", (PlayerListColumnDefController controller) -> {});
+        addSeparator();
         for (Player player : playerList) {
             FxmlFileOpener.addCustomizedFXMLTo(playerListVbox, "playerItem.fxml", (PlayerItemController controller) -> controller.setPlayerDetails(player));
         }
+    }
+
+    private void addSeparator() {
+        Separator separator = new Separator();
+        separator.setPrefWidth(284); // Set desired length
+        separator.setOrientation(Orientation.HORIZONTAL); // Optional, since it's horizontal by default
+
+        playerListVbox.getChildren().add(separator);
     }
 
     @FXML
