@@ -26,9 +26,9 @@ public class GamePanelController {
                 Image newImage;
 //                System.out.println(ContextController.getAppCore().getRound());
                 if (ContextController.getAppCore().getRound() % 2 == 0) {
-                    newImage = addMove(position, ContextController.getAppCore().getActivePlayers()[0], "/icons/x.png");
+                    newImage = addMoveOnMatrix(position, ContextController.getAppCore().getActivePlayers()[0], "/icons/x.png");
                 } else {
-                    newImage = addMove(position, ContextController.getAppCore().getActivePlayers()[1], "/icons/o.png");
+                    newImage = addMoveOnMatrix(position, ContextController.getAppCore().getActivePlayers()[1], "/icons/o.png");
                 }
                 ImageView imageView = (ImageView) clickedButton.getGraphic();
                 imageView.setImage(newImage);
@@ -38,7 +38,7 @@ public class GamePanelController {
         }
     }
 
-    private Image addMove(int position, Player player, String iconPath) throws Exception {
+    private Image addMoveOnMatrix(int position, Player player, String iconPath) throws Exception {
         System.out.print("Round " + ContextController.getAppCore().getRound() + ": " + player.getUsername() + " -> ");
         ContextController.getAppCore().addMove(position, player);
         Image newImage = new Image(getClass().getResourceAsStream(iconPath));
@@ -48,6 +48,7 @@ public class GamePanelController {
 
     private void showGameOver(String playerName) {
         if (ContextController.getAppCore().isGameOver()) {
+            System.out.println("Game Over! Player: \"" + playerName + "\" won!");
             gameOver = true;
             ContextController.getAppCore().resetGame();
             Label label = ContextController.getErrorLabel();

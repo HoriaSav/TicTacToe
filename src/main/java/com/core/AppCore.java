@@ -2,12 +2,11 @@ package com.core;
 
 import com.core.manager.GameManager;
 import com.core.manager.PlayerManager;
-
 import java.util.List;
 
 public class AppCore {
-    private GameManager gameManager;
-    private PlayerManager playerManager;
+    private final GameManager gameManager;
+    private final PlayerManager playerManager;
 
     public AppCore() {
         gameManager = new GameManager();
