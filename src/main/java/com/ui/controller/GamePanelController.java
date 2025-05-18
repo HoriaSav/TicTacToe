@@ -1,6 +1,5 @@
 package com.ui.controller;
 
-import com.core.AppCore;
 import com.core.Player;
 import com.ui.tools.ContextController;
 import com.ui.tools.FxmlFileOpener;
@@ -25,7 +24,7 @@ public class GamePanelController {
                 Button clickedButton = (Button) event.getSource();
                 int position = Integer.parseInt(clickedButton.getText());
                 Image newImage;
-                System.out.println(ContextController.getAppCore().getRound());
+//                System.out.println(ContextController.getAppCore().getRound());
                 if (ContextController.getAppCore().getRound() % 2 == 0) {
                     newImage = addMove(position, ContextController.getAppCore().getActivePlayers()[0], "/icons/x.png");
                 } else {
@@ -39,34 +38,32 @@ public class GamePanelController {
         }
     }
 
-    private Image addMove(int position, Player player, String iconPath) throws Exception{
+    private Image addMove(int position, Player player, String iconPath) throws Exception {
+        System.out.print("Round " + ContextController.getAppCore().getRound() + ": " + player.getUsername() + " -> ");
         ContextController.getAppCore().addMove(position, player);
         Image newImage = new Image(getClass().getResourceAsStream(iconPath));
-        System.out.println("Round "+ContextController.getAppCore().getRound());
         showGameOver(player.getUsername());
-        System.out.println(player.getUsername());
         return newImage;
     }
 
     private void showGameOver(String playerName) {
         if (ContextController.getAppCore().isGameOver()) {
             gameOver = true;
+            ContextController.getAppCore().resetGame();
             Label label = ContextController.getErrorLabel();
-            String player1=ContextController.getAppCore().getActivePlayers()[0].getUsername();
-            String player2=ContextController.getAppCore().getActivePlayers()[1].getUsername();
+            String player1 = ContextController.getAppCore().getActivePlayers()[0].getUsername();
+            String player2 = ContextController.getAppCore().getActivePlayers()[1].getUsername();
 
-            if(ContextController.getAppCore().getRound()==9){
+            if (ContextController.getAppCore().getRound() == 9) {
                 label.setText("Game Over. It's a tie!");
-                ContextController.getAppCore().updatePlayer(null,player1);
-                ContextController.getAppCore().updatePlayer(null,player2);
-            }
-            else{
+                ContextController.getAppCore().updatePlayer(null, player1);
+                ContextController.getAppCore().updatePlayer(null, player2);
+            } else {
                 label.setText("Game Over. Player " + playerName + " won!");
-                if(ContextController.getAppCore().getRound()%2==1) {
+                if (ContextController.getAppCore().getRound() % 2 == 1) {
                     ContextController.getAppCore().updatePlayer(Boolean.TRUE, player1);
                     ContextController.getAppCore().updatePlayer(Boolean.FALSE, player2);
-                }
-                else {
+                } else {
                     ContextController.getAppCore().updatePlayer(Boolean.FALSE, player1);
                     ContextController.getAppCore().updatePlayer(Boolean.TRUE, player2);
                 }

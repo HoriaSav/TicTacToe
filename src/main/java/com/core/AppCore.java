@@ -53,4 +53,8 @@ public class AppCore {
     public void resetActivePlayer(int playerNumber) {
         playerManager.resetActivePlayer(playerNumber);
     }
+
+    public void resetGame(){
+        gameManager.resetGame();
+    }
 }

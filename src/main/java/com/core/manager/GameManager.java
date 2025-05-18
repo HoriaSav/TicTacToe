@@ -4,7 +4,7 @@ import com.core.Player;
 import com.core.UserInputValidator;
 
 public class GameManager {
-    private final Boolean[] matrix;
+    private Boolean[] matrix;
     private int round = 0;
 
     public GameManager() {
@@ -34,5 +34,11 @@ public class GameManager {
 
     public int getRound() {
         return round;
+    }
+
+    public void resetGame(){
+        matrix = new Boolean[9];
+        round = 0;
+        System.out.println("Game has been reset");
     }
 }
