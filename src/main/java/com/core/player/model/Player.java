@@ -1,5 +1,14 @@
-package com.core;
+package com.core.player.model;
 
+/**
+ * @author HoriaSav
+ *
+ * This class represents a player in the TicTacToe game.
+ * It maintains the player details like username, games won, games lost and games draw.
+ * It also maintains the game id for the player.
+ * It also provides methods to update the player details.
+ * It also provides methods to retrieve the player details.
+*/
 public class Player {
     private String username;
     private int gamesWon = 0;

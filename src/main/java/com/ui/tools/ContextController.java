@@ -1,12 +1,11 @@
 package com.ui.tools;
 
-import com.core.AppCore;
-import javafx.fxml.FXML;
+import com.core.game.GameEngine;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 
 public class ContextController {
-    private static AppCore appCore;
+    private static GameEngine gameEngine;
 
     private static StackPane mainStack;
     private static Label errorLabel;
@@ -34,12 +33,12 @@ public class ContextController {
         return errorLabel;
     }
 
-    public static AppCore getAppCore(){
-        return appCore;
+    public static GameEngine getAppCore(){
+        return gameEngine;
     }
 
-    public static void setAppCore(AppCore appCore) {
-        ContextController.appCore = appCore;
+    public static void setAppCore(GameEngine gameEngine) {
+        ContextController.gameEngine = gameEngine;
     }
 
     public static void setPlayerInfoLabels(Label player1UsernameLabel, Label player2UsernameLabel, Label player1WinrateLabel, Label player2WinrateLabel) {

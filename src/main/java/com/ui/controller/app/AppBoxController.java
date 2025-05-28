@@ -1,8 +1,8 @@
-package com.ui.controller;
+package com.ui.controller.app;
 
-import com.core.AppCore;
+import com.core.game.GameEngine;
 import com.ui.tools.ContextController;
-import com.ui.tools.FxmlFileOpener;
+import com.ui.util.FxmlLoader;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,19 +22,19 @@ public class AppBoxController {
         loadWelcomePanel();
         ContextController.setMainStack(stackPane); // Register stackPane
         ContextController.setErrorLabel(errorLabel);
-        ContextController.setAppCore(new AppCore());
+        ContextController.setAppCore(new GameEngine());
         ContextController.setLastAccessedFile("welcome_panel.fxml");
     }
 
     private void loadWelcomePanel() {
         String newPanel = "welcome_panel.fxml";
-        FxmlFileOpener.loadFrame(stackPane, newPanel);
+        FxmlLoader.loadFrame(stackPane, newPanel);
     }
 
     @FXML
     private void goBackToLastPanel() {
         if (ContextController.getLastAccessedFile() != null) {
-            FxmlFileOpener.loadFrame(stackPane, ContextController.getLastAccessedFile());
+            FxmlLoader.loadFrame(stackPane, ContextController.getLastAccessedFile());
         }
     }
 

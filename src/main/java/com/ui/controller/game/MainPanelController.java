@@ -1,7 +1,7 @@
-package com.ui.controller;
+package com.ui.controller.game;
 
 import com.ui.tools.ContextController;
-import com.ui.tools.FxmlFileOpener;
+import com.ui.util.FxmlLoader;
 import javafx.fxml.FXML;
 import javafx.scene.layout.StackPane;
 
@@ -15,7 +15,7 @@ public class MainPanelController {
         if (targetStack != null) {
             String newPanel = "player_selection_panel.fxml";
             ContextController.setLastAccessedFile("welcome_panel.fxml");
-            FxmlFileOpener.loadFrame(targetStack, newPanel);
+            FxmlLoader.loadFrame(targetStack, newPanel);
         } else {
             System.out.println("Main StackPane not found.");
         }
@@ -26,7 +26,7 @@ public class MainPanelController {
         if (targetStack != null) {
             String newPanel = "settings.fxml";
             ContextController.setLastAccessedFile("welcome_panel.fxml");
-            FxmlFileOpener.loadFrame(targetStack, newPanel);
+            FxmlLoader.loadFrame(targetStack, newPanel);
         } else {
             System.out.println("Main StackPane not found.");
         }

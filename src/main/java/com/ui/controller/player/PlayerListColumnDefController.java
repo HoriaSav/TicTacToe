@@ -1,4 +1,4 @@
-package com.ui.controller;
+package com.ui.controller.player;
 
 public class PlayerListColumnDefController {
 

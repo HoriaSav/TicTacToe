@@ -1,8 +1,8 @@
-package com.ui.controller;
+package com.ui.controller.player;
 
-import com.core.Player;
+import com.core.player.model.Player;
 import com.ui.tools.ContextController;
-import com.ui.tools.FxmlFileOpener;
+import com.ui.util.FxmlLoader;
 import javafx.fxml.FXML;
 import javafx.geometry.Orientation;
 import javafx.scene.control.Label;
@@ -41,10 +41,10 @@ public class PlayerPanelController {
     private void loadPlayersInUI() {
         playerList = ContextController.getAppCore().getPlayerList();
         playerListVbox.getChildren().clear();
-        FxmlFileOpener.addCustomizedFXMLTo(playerListVbox, "playerListColumnDef.fxml", (PlayerListColumnDefController controller) -> {});
+        FxmlLoader.addCustomizedFXMLTo(playerListVbox, "playerListColumnDef.fxml", (PlayerListColumnDefController controller) -> {});
         addSeparator();
         for (Player player : playerList) {
-            FxmlFileOpener.addCustomizedFXMLTo(playerListVbox, "playerItem.fxml", (PlayerItemController controller) -> controller.setPlayerDetails(player));
+            FxmlLoader.addCustomizedFXMLTo(playerListVbox, "playerItem.fxml", (PlayerItemController controller) -> controller.setPlayerDetails(player));
         }
     }
 
@@ -68,7 +68,7 @@ public class PlayerPanelController {
         if (targetStack != null) {
             String newPanel = "game_panel.fxml";
             ContextController.setLastAccessedFile("welcome_panel.fxml");
-            FxmlFileOpener.loadFrame(targetStack, newPanel);
+            FxmlLoader.loadFrame(targetStack, newPanel);
         } else {
             System.out.println("Main StackPane not found.");
         }

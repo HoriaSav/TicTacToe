@@ -1,4 +1,4 @@
-package com.ui.tools;
+package com.ui.util;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,9 +12,9 @@ import com.MainApp;
 import java.io.IOException;
 import java.util.function.Consumer;
 
-public class FxmlFileOpener {
+public class FxmlLoader {
 
-    public FxmlFileOpener() {
+    public FxmlLoader() {
     }
 
     public void openFileOnAction(String filename) {
@@ -33,7 +33,7 @@ public class FxmlFileOpener {
 
     public static void loadFrame(StackPane stackPane, String filename) {
         try {
-            FXMLLoader loader = new FXMLLoader(FxmlFileOpener.class.getResource("/fxml/" + filename));
+            FXMLLoader loader = new FXMLLoader(FxmlLoader.class.getResource("/fxml/" + filename));
 
             Parent page = loader.load();  // JavaFX will automatically use the fx:controller from the FXML
             stackPane.getChildren().setAll(page);  // Replace content in StackPane
@@ -46,7 +46,7 @@ public class FxmlFileOpener {
 
     public static <T> void addCustomizedFXMLTo(Pane parent, String filename, Consumer<T> controllerModifier) {
         try {
-            FXMLLoader loader = new FXMLLoader(FxmlFileOpener.class.getResource("/fxml/" + filename));
+            FXMLLoader loader = new FXMLLoader(FxmlLoader.class.getResource("/fxml/" + filename));
             Parent node = loader.load();
 
             // Get controller

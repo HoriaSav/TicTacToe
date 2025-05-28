@@ -1,6 +1,6 @@
-package com.core.manager;
+package com.core.common.util;
 
-import com.core.Player;
+import com.core.player.model.Player;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -9,6 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * @author HoriaSav
+ *
+ * This class handles the file operations for storing and retrieving the player data.
+ */
 public class FileManager {
 
     public static void writeToFile(List<Player> playerList) {

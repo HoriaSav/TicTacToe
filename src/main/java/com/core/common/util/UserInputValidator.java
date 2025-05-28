@@ -1,12 +1,9 @@
-package com.core;
+package com.core.common.util;
 
 public class UserInputValidator {
 
     public static boolean isValidMove(int position, Boolean[] matrix) {
-        if (matrix[position] == null) {
-            return true;
-        }
-        return false;
+        return matrix[position] == null;
     }
 
     public static boolean isGameOver(Boolean[] matrix) {

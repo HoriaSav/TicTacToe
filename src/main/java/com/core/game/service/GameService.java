@@ -1,13 +1,20 @@
-package com.core.manager;
+package com.core.game.service;
 
-import com.core.Player;
-import com.core.UserInputValidator;
+import com.core.common.util.UserInputValidator;
+import com.core.player.model.Player;
 
-public class GameManager {
+/**
+ * @author HoriaSav
+ *
+ * This class handles the game logic for the TicTacToe game.
+ * It maintains the state of the game and provides methods to perform game operations.
+ * It also validates the user input for the game.
+ */
+public class GameService {
     private Boolean[] matrix;
     private int round = 0;
 
-    public GameManager() {
+    public GameService() {
         matrix = new Boolean[9];
     }
 
