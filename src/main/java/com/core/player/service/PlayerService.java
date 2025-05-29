@@ -93,10 +93,10 @@ public class PlayerService implements IPlayerService {
     @Override
     public void resetActivePlayer(int playerNumber) {
         if (playerNumber == 1) {
-            ContextController.setPlayer1InfoDetails("Guest", "unknown");
+            ContextController.setPlayer1InfoDetails("Guest 1", "unknown");
             currentPlayers[0] = null;
         } else if (playerNumber == 2) {
-            ContextController.setPlayer2InfoDetails("Guest", "unknown");
+            ContextController.setPlayer2InfoDetails("Guest 2", "unknown");
             currentPlayers[1] = null;
         }
     }
@@ -127,6 +127,12 @@ public class PlayerService implements IPlayerService {
 
     private void setPlayerList() {
         this.playerList = FileManager.readFile();
+        if (playerList.stream().noneMatch(player -> player.getUsername().equals("Guest 1"))) {
+            playerList.add(new Player("Guest 1"));
+        }
+        if (playerList.stream().noneMatch(player -> player.getUsername().equals("Guest 2"))) {
+            playerList.add(new Player("Guest 2"));
+        }
     }
 
     private void updateFile() {

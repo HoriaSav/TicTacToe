@@ -65,6 +65,12 @@ public class PlayerPanelController {
 
     @FXML
     private void playGame() {
+        if (ContextController.getGameEngine().getActivePlayers(1) == null) {
+            ContextController.getGameEngine().setActivePlayer("Guest 1");
+        }
+        if (ContextController.getGameEngine().getActivePlayers(2) == null) {
+            ContextController.getGameEngine().setActivePlayer("Guest 2");
+        }
         StackPane targetStack = ContextController.getMainStack();
         if (targetStack != null) {
             String newPanel = "game_panel.fxml";
