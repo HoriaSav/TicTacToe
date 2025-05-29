@@ -46,7 +46,7 @@
                   <VBox prefHeight="200.0" prefWidth="100.0" styleClass="VBox-text-field-player-panel">
                      <children>
                         <TextField fx:id="usernameTextField" promptText="Username" styleClass="text-field-player-panel" VBox.vgrow="SOMETIMES" />
-                        <TextField fx:id="passwordTextField" promptText="WTF field" styleClass="text-field-player-panel" VBox.vgrow="SOMETIMES" />
+                        <TextField fx:id="passwordTextField" promptText="Gender" styleClass="text-field-player-panel" VBox.vgrow="SOMETIMES" />
                      </children>
                   </VBox>
                   <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0">

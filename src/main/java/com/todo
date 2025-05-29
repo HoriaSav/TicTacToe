@@ -5,7 +5,6 @@
 
 
 Problems (code):
-- draw should not result in a win
 
 Problems (UI):
 - "-" button should appear only for non-guests
@@ -14,3 +13,4 @@ Problems (UI):
 optional:
 - leaderboard
 - delete users
+- restart game

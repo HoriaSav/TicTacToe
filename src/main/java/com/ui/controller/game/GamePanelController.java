@@ -11,6 +11,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
+import java.util.Objects;
+
 public class GamePanelController {
     private boolean gameOver = false;
 
@@ -40,7 +42,7 @@ public class GamePanelController {
     private Image addMoveOnMatrix(int position, Player player, String iconPath) throws Exception {
         System.out.print("Round " + ContextController.getGameEngine().getRound() + ": " + player.getUsername() + " -> ");
         ContextController.getGameEngine().addMove(position, player);
-        Image newImage = new Image(getClass().getResourceAsStream(iconPath));
+        Image newImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream(iconPath)));
         showGameOver(player.getUsername());
         return newImage;
     }
@@ -82,11 +84,5 @@ public class GamePanelController {
         } else {
             System.out.println("Main StackPane not found.");
         }
-    }
-
-    @FXML
-    private void restartGame() {
-        gameOver = false;
-
     }
 }
