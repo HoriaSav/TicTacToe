@@ -47,9 +47,8 @@ public class GamePanelController {
 
     private void showGameOver(String playerName) {
         if (ContextController.getGameEngine().isGameOver()) {
-            System.out.println("Game Over! Player: \"" + playerName + "\" won!");
+//            System.out.println("Game Over! Player: \"" + playerName + "\" won!");
             gameOver = true;
-            ContextController.getGameEngine().resetGame();
             Label label = ContextController.getErrorLabel();
             String player1 = ContextController.getGameEngine().getActivePlayers(1).getUsername();
             String player2 = ContextController.getGameEngine().getActivePlayers(2).getUsername();
@@ -68,6 +67,7 @@ public class GamePanelController {
                     ContextController.getGameEngine().updatePlayer(Boolean.TRUE, player2);
                 }
             }
+            ContextController.getGameEngine().resetGame();
             loadMainPanel();
         }
     }
