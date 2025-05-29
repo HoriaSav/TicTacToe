@@ -3,6 +3,7 @@ package com.ui.tools;
 import com.core.game.GameEngine;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 
 public class ContextController {
     private static GameEngine gameEngine;
@@ -16,6 +17,8 @@ public class ContextController {
     private static Label player2WinrateLabel;
 
     private static String lastAccessedFile;
+
+    private static VBox goBackVBox;
 
     public static void setMainStack(StackPane stackPane) {
         mainStack = stackPane;
@@ -64,5 +67,13 @@ public class ContextController {
 
     public static void setLastAccessedFile(String lastAccessedFile) {
         ContextController.lastAccessedFile = lastAccessedFile;
+    }
+
+    public static VBox getGoBackVBox() {
+        return goBackVBox;
+    }
+
+    public static void setGoBackVBox(VBox goBackVBox) {
+        ContextController.goBackVBox = goBackVBox;
     }
 }

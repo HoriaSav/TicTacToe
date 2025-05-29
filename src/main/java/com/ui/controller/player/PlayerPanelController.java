@@ -36,6 +36,7 @@ public class PlayerPanelController {
         ContextController.setPlayerInfoLabels(player1UsernameLabel, player2UsernameLabel, player1WinrateLabel, player2WinrateLabel);
         ContextController.getGameEngine().resetActivePlayer(1);
         ContextController.getGameEngine().resetActivePlayer(2);
+        ContextController.getGoBackVBox().setVisible(true);
     }
 
     private void loadPlayersInUI() {

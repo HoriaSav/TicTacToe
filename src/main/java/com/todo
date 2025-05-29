@@ -8,8 +8,7 @@ Problems (code):
 
 Problems (UI):
 - "-" button should appear only for non-guests
-- window should be resizable
-- window should be movable
+- window should be resizable (inside settings)
 
 optional:
 - leaderboard

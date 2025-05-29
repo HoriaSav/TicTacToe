@@ -50,8 +50,12 @@
                     </HBox>
                 </children>
             </HBox>
-         <Button mnemonicParsing="false" onAction="#goBackToLastPanel" styleClass="rounded-button" text="&lt;-" />
-           <Label fx:id="errorLabel" text="Error messages: " />
+         <VBox fx:id="goBackVBox" prefHeight="200.0" prefWidth="100.0">
+            <children>
+               <Button mnemonicParsing="false" onAction="#goBackToLastPanel" styleClass="rounded-button" text="&lt;-" />
+                 <Label fx:id="errorLabel" text="Error messages: " />
+            </children>
+         </VBox>
             <padding>
                 <Insets left="5.0" right="5.0" top="5.0" />
             </padding>
