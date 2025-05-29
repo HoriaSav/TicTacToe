@@ -4,15 +4,14 @@
 - use dependency injection instead of direct instantiation
 
 
-Problems:
-- can enter 2 users with same name
-- create field should empty after pressing create button
-- "-" button should apear only for non-guests
+Problems (code):
 - game does not work for guests
+- can create user with empty name
+
+Problems (UI):
+- "-" button should apear only for non-guests
 - window should be resizable
 - window should be movable
-- can create user with empty name
-- can win games if in a line there is XX0 or X0X any wrong combination (only for same name users)
 
 optional:
 - leaderboard

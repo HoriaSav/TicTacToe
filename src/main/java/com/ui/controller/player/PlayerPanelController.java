@@ -59,6 +59,7 @@ public class PlayerPanelController {
     @FXML
     public void createNewUser() {
         ContextController.getGameEngine().createNewUser(usernameTextField.getText());
+        usernameTextField.clear();
         loadPlayersInUI();
     }
 

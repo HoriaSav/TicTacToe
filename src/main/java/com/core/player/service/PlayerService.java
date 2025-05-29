@@ -27,6 +27,9 @@ public class PlayerService implements IPlayerService {
 
     @Override
     public void creatPlayer(String username) {
+        if (playerList.stream().anyMatch(player -> player.getUsername().equals(username))) {
+            throw new PlayerException("Player already exists");
+        }
         Player newPlayer = new Player(username);
         storePlayer(newPlayer);
     }
