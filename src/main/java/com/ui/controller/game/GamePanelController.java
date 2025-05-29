@@ -76,6 +76,7 @@ public class GamePanelController {
         StackPane targetStack = ContextController.getMainStack();
         if (targetStack != null) {
             String newPanel = "welcome_panel.fxml";
+            ContextController.getGoBackVBox().setVisible(false);
             ContextController.setLastAccessedFile(newPanel);
             FxmlLoader.loadFrame(targetStack, newPanel);
         } else {
