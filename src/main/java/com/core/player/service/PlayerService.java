@@ -30,6 +30,9 @@ public class PlayerService implements IPlayerService {
         if (playerList.stream().anyMatch(player -> player.getUsername().equals(username))) {
             throw new PlayerException("Player already exists");
         }
+        if (username.trim().isEmpty()) {
+            throw new PlayerException("Username cannot be empty");
+        }
         Player newPlayer = new Player(username);
         storePlayer(newPlayer);
     }
