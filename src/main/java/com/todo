@@ -5,7 +5,6 @@
 
 
 Problems (code):
-- can create user with empty name
 
 Problems (UI):
 - "-" button should appear only for non-guests

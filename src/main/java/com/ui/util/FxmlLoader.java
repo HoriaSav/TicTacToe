@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.util.function.Consumer;
 
 public class FxmlLoader {
+    private double xOffset = 0;
+    private double yOffset = 0;
 
     public FxmlLoader() {
     }
@@ -20,10 +22,25 @@ public class FxmlLoader {
     public void openFileOnAction(String filename) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource(filename));
+
+
             Stage stage = new Stage();
             stage.initStyle(StageStyle.UNDECORATED);
 
-            Scene scene = new Scene(fxmlLoader.load(), 300, 400);
+            Parent root = fxmlLoader.load();
+            // Store mouse position
+            root.setOnMousePressed(event -> {
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            });
+
+            // Move stage
+            root.setOnMouseDragged(event -> {
+                stage.setX(event.getScreenX() - xOffset);
+                stage.setY(event.getScreenY() - yOffset);
+            });
+
+            Scene scene = new Scene(root, 300, 400);
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {
