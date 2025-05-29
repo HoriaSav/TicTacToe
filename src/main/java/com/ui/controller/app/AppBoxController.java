@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -19,7 +20,7 @@ public class AppBoxController {
     @FXML
     private Label errorLabel;
     @FXML
-    private VBox goBackVBox;
+    private HBox goBackHBox;
 
     public void initialize() {
         loadWelcomePanel();
@@ -27,8 +28,8 @@ public class AppBoxController {
         ContextController.setErrorLabel(errorLabel);
         ContextController.setAppCore(new GameEngine());
         ContextController.setLastAccessedFile("welcome_panel.fxml");
-        ContextController.setGoBackVBox(goBackVBox);
-        goBackVBox.setVisible(false);
+        ContextController.setGoBackVBox(goBackHBox);
+        goBackHBox.setVisible(false);
     }
 
     private void loadWelcomePanel() {
@@ -41,7 +42,7 @@ public class AppBoxController {
         if (ContextController.getLastAccessedFile() != null) {
             FxmlLoader.loadFrame(stackPane, ContextController.getLastAccessedFile());
             if (ContextController.getLastAccessedFile().equals("welcome_panel.fxml")) {
-                goBackVBox.setVisible(false);
+                goBackHBox.setVisible(false);
             }
         }
     }

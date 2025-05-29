@@ -7,20 +7,21 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="300.0" prefWidth="300.0" stylesheets="@gameStyles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ui.controller.MainPanelController">
+<AnchorPane prefHeight="300.0" prefWidth="300.0" styleClass="root" stylesheets="@gameStyles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ui.controller.MainPanelController">
    <children>
       <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="300.0" spacing="15.0">
          <children>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="300.0" spacing="30.0" />
-            <Label text="Tic Tac Toe">
+            <Label styleClass="custom_label" text="Tic Tac Toe">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
+            <Label styleClass="subtitle" text="Challenge your friend .. or yourself." />
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#loadPlayerSelectionPanel" prefHeight="25.0" prefWidth="100.0" styleClass="rounded-button" text="Play" />
-                  <Button mnemonicParsing="false" onAction="#loadSettingsPanel" prefHeight="25.0" prefWidth="100.0" styleClass="rounded-button" text="Settings" />
+                  <Button fx:id="playButton" mnemonicParsing="false" onAction="#loadPlayerSelectionPanel" prefHeight="25.0" prefWidth="100.0" styleClass="custom_button" text="Play" />
+                  <Button fx:id="settingsButton" mnemonicParsing="false" onAction="#loadSettingsPanel" prefHeight="25.0" prefWidth="100.0" styleClass="custom_button" text="Settings" />
                </children>
             </VBox>
          </children>

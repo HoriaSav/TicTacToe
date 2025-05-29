@@ -3,65 +3,31 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" stylesheets="@gameStyles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ui.controller.app.AppBoxController">
     <top>
-        <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="300.0" styleClass="vbox-styled">
-            <HBox alignment="CENTER_LEFT" spacing="10" BorderPane.alignment="CENTER">
-                <children>
-
-                    <!-- App Icon and Name -->
-                    <HBox alignment="TOP_CENTER" spacing="5.0">
-                        <ImageView fitHeight="30" fitWidth="30">
-                            <Image url="@../icons/x.png" />
-                        </ImageView>
-                        <ImageView fitHeight="30" fitWidth="30">
-                            <image>
-                                <Image url="@../icons/o.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="30" fitWidth="30">
-                            <image>
-                                <Image url="@../icons/x.png" />
-                            </image>
-                        </ImageView>
-                    </HBox>
-
-                    <!-- Push everything to the right -->
-                    <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="70.0" />
-
-                    <!-- Window Control Buttons -->
-                    <HBox alignment="TOP_CENTER" spacing="5">
-                        <!-- Minimize Button -->
-                        <Button onAction="#minimizeWindow" styleClass="window-button" text="—" />
-
-                        <!-- Maximize/Windowed Button -->
-                        <Button onAction="#toggleMaximize" styleClass="window-button" text="❐" />
-
-                        <!-- Close Button -->
-                        <Button onAction="#closeApp" styleClass="window-button-close" text="✕" />
-                    </HBox>
-                </children>
+        <VBox alignment="TOP_CENTER" prefWidth="300.0">
+            <HBox alignment="CENTER_RIGHT" spacing="10" styleClass="titleHBoxBar" BorderPane.alignment="CENTER">
+                <HBox alignment="TOP_CENTER" spacing="5">
+                    <Button onAction="#minimizeWindow" styleClass="window-button" text="—" />
+                    <Button onAction="#toggleMaximize" styleClass="window-button" text="❐" />
+                    <Button onAction="#closeApp" styleClass="window-button-close" text="✕" />
+                </HBox>
             </HBox>
-         <VBox fx:id="goBackVBox" prefHeight="200.0" prefWidth="100.0">
-            <children>
-               <Button mnemonicParsing="false" onAction="#goBackToLastPanel" styleClass="rounded-button" text="&lt;-" />
-                 <Label fx:id="errorLabel" text="Error messages: " />
-            </children>
-         </VBox>
+            <HBox fx:id="goBackHBox" alignment="CENTER_LEFT" prefWidth="100.0" spacing="10.0">
+                <Button mnemonicParsing="false" onAction="#goBackToLastPanel" styleClass="button-little-player-panel" text="&lt;-" />
+                <Label fx:id="errorLabel" />
             <padding>
-                <Insets left="5.0" right="5.0" top="5.0" />
+               <Insets bottom="2.0" left="5.0" top="2.0" />
             </padding>
+            </HBox>
         </VBox>
     </top>
     <bottom>
-        <StackPane fx:id="stackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="300.0" BorderPane.alignment="CENTER" />
+        <StackPane fx:id="stackPane" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="330.0" prefWidth="300.0" BorderPane.alignment="CENTER" />
     </bottom>
 </BorderPane>

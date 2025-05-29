@@ -43,3 +43,133 @@
 .window-button-close:hover {
     -fx-background-color: #ff4a4a;
 }
+
+.custom_button {
+    -fx-text-fill: #222; /* or black */
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #f2f2f2, #e6e6e6);
+    -fx-background-radius: 20;
+    -fx-padding: 10 20 10 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0, 0, 2);
+}
+
+.custom_button:hover {
+    -fx-background-color: #dddddd;
+}
+
+.custom_label {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #222; /* or #333 for slightly softer look */
+}
+
+.root {
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #ffffff, #f7f7f7);
+}
+
+.titleHBoxBar {
+    -fx-background-color: #e0e0e0; /* subtle gray */
+    -fx-padding: 8 12;
+}
+
+.subtitle {
+    -fx-font-size: 14px;
+    -fx-text-fill: #666;
+    -fx-padding: 5 0 15 0;
+    -fx-font-style: italic;
+    -fx-font-family: "Segoe UI Light";
+}
+
+.card-player-panel {
+    -fx-background-color: #ffffff;
+    -fx-padding: 10;
+    -fx-spacing: 5;
+    -fx-background-radius: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 4, 0.1, 0, 1);
+}
+
+.HBox-Cards-player-panel {
+    -fx-spacing: 10;
+    -fx-padding: 5;
+}
+
+.text-field-player-panel {
+    -fx-padding: 6 10;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-border-color: #ccc;
+    -fx-background-color: #f9f9f9;
+}
+
+.VBox-text-field-player-panel{
+    -fx-spacing: 10;
+}
+
+.text-field-player-panel:focused {
+    -fx-border-color: #3498db;
+}
+
+.button-player-panel {
+    -fx-background-color: #eeeeee;
+    -fx-background-radius: 20;
+    -fx-padding: 6 16;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 2, 0.1, 0, 1);
+}
+
+.button-player-panel:hover {
+    -fx-background-color: #dddddd;
+}
+
+.button-little-player-panel {
+    -fx-background-color: #eeeeee;
+    -fx-background-radius: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 2, 0.1, 0, 1);
+}
+
+.button-little-player-panel:hover {
+    -fx-background-color: #dddddd;
+}
+
+.title-player-panel {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #222;
+    -fx-padding: 0 0 8 0;
+}
+
+.user-card {
+    -fx-background-color: #ffffff;
+    -fx-padding: 10;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.04), 3, 0.1, 0, 1);
+    -fx-spacing: 10; /* if using HBox or VBox */
+}
+
+.table-header {
+    -fx-font-weight: bold;
+    -fx-text-fill: #555;
+    -fx-padding: 0 0 5 0;
+}
+
+.scroll-pane .scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+.scroll-pane .thumb {
+    -fx-background-color: #ccc;
+    -fx-background-radius: 6;
+}
+
+.VBox-scroll-pane {
+    -fx-spacing: 3;
+}
+
+.add-button {
+    -fx-font-size: 14;
+    -fx-background-radius: 50%;
+    -fx-min-width: 28;
+    -fx-min-height: 28;
+    -fx-background-color: #eeeeee;
+}
+.add-button:hover {
+    -fx-background-color: #ddd;
+}
