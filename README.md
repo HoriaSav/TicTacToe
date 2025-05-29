@@ -67,10 +67,7 @@ MainApp.java # Entry point
 
 - 🌓 **Theme Support**  
   Toggle between light/dark modes using JavaFX CSS themes.
-
-- 🧪 **More Game Modes**  
-  Versus AI, time-limited rounds, or 5x5 board variants.
-
+  
 - 🎨 **Custom Avatars**  
   Allow users to pick or upload their own profile images.
 ```
