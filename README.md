@@ -57,7 +57,7 @@ MainApp.java # Entry point
 
 ---
 
-### 🌟 Planned Features (Add this section)
+### 🌟 Planned Features
 
 ```markdown
 ## 🧠 Planned Features
