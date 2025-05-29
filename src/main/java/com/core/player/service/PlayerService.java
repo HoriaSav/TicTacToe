@@ -12,19 +12,19 @@ import static java.lang.Boolean.TRUE;
 
 /**
  * @author HoriaSav
- *
+ * <p>
  * This class handles the player operations for creating, deleting, updating and retrieving the player data.
  * It also handles the player status and game status updates.
  * It also handles the active player selection.
  */
-public class PlayerService implements IPlayerService{
+public class PlayerService implements IPlayerService {
     private List<Player> playerList;
-    private Player[] currentPlayers;
+    private final Player[] currentPlayers = new Player[2];
 
     public PlayerService() {
-        playerList = readPlayersFromFile();
-        currentPlayers = new Player[2];
+        setPlayerList();
     }
+
     @Override
     public void creatPlayer(String username) {
         Player newPlayer = new Player(username);
@@ -38,7 +38,7 @@ public class PlayerService implements IPlayerService{
     }
 
     @Override
-    public void updatePlayerStatus(String username, Boolean gameStatus) {
+    public void updatePlayerGames(String username, Boolean gameStatus) {
         for (Player player : playerList) {
             if (player.getUsername().equals(username)) {
                 if (gameStatus == null) {
@@ -53,11 +53,6 @@ public class PlayerService implements IPlayerService{
         }
     }
 
-    private void storePlayer(Player player) {
-        playerList.add(player);
-        updateFile();
-    }
-
     @Override
     public List<Player> getAllPlayers() {
         return playerList;
@@ -68,21 +63,8 @@ public class PlayerService implements IPlayerService{
         return currentPlayers[playerNumber-1];
     }
 
-    private List<Player> readPlayersFromFile() {
-        return FileManager.readFile();
-    }
-
-    //TODO: modify readPlayersFromFile() to setPlayerList()
-    private void setPlayerList(List<Player> playerList) {
-        this.playerList = playerList;
-    }
-
-    //TODO: eliminate updateFile(), use getAllPlayers() to write to file
-    private void updateFile() {
-        FileManager.writeToFile(playerList);
-    }
-
-    private Player getPlayer(String username) throws Exception {
+    @Override
+    public Player getPlayer(String username) throws Exception {
         for (Player player : playerList) {
             if (player.getUsername().equals(username)) {
                 return player;
@@ -91,15 +73,28 @@ public class PlayerService implements IPlayerService{
         throw new Exception("No such Player found");
     }
 
+    @Override
     public void setActivePlayer(String username) {
         try {
             if (currentPlayers[0] == null) {
                 setAPlayer(0, username);
             } else if (currentPlayers[1] == null) {
+
                 setAPlayer(1, username);
             }
         } catch (Exception e) {
-            throw new PlayerException("No such Player found");
+            throw new PlayerException("No such Player found" + e.getMessage());
+        }
+    }
+
+    @Override
+    public void resetActivePlayer(int playerNumber) {
+        if (playerNumber == 1) {
+            ContextController.setPlayer1InfoDetails("Guest", "unknown");
+            currentPlayers[0] = null;
+        } else if (playerNumber == 2) {
+            ContextController.setPlayer2InfoDetails("Guest", "unknown");
+            currentPlayers[1] = null;
         }
     }
 
@@ -114,20 +109,24 @@ public class PlayerService implements IPlayerService{
             float gamesWon = currentPlayers[i].getGamesWon();
             winrate = gamesWon / gamesPlayed;
         }
-        ContextController.setPlayer2InfoDetails(username, (winrate + ""));
-    }
-
-    public void resetActivePlayer(int playerNumber) {
-        if(playerNumber == 1) {
-            ContextController.setPlayer1InfoDetails("Guest", "unknown");
-            currentPlayers[0]=null;
-        } else if (playerNumber == 2) {
-            ContextController.setPlayer2InfoDetails("Guest", "unknown");
-            currentPlayers[1]=null;
+        if (i+1 == 1) {
+            ContextController.setPlayer1InfoDetails(username, (winrate + ""));
+        }
+        else {
+            ContextController.setPlayer2InfoDetails(username, (winrate + ""));
         }
     }
 
-    public Player[] getActivePlayers() {
-        return currentPlayers;
+    private void storePlayer(Player player) {
+        playerList.add(player);
+        updateFile();
+    }
+
+    private void setPlayerList() {
+        this.playerList = FileManager.readFile();
+    }
+
+    private void updateFile() {
+        FileManager.writeToFile(getAllPlayers());
     }
 }

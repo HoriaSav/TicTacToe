@@ -34,12 +34,12 @@ public class PlayerPanelController {
     public void initialize() {
         loadPlayersInUI();
         ContextController.setPlayerInfoLabels(player1UsernameLabel, player2UsernameLabel, player1WinrateLabel, player2WinrateLabel);
-        ContextController.getAppCore().resetActivePlayer(1);
-        ContextController.getAppCore().resetActivePlayer(2);
+        ContextController.getGameEngine().resetActivePlayer(1);
+        ContextController.getGameEngine().resetActivePlayer(2);
     }
 
     private void loadPlayersInUI() {
-        playerList = ContextController.getAppCore().getPlayerList();
+        playerList = ContextController.getGameEngine().getPlayerList();
         playerListVbox.getChildren().clear();
         FxmlLoader.addCustomizedFXMLTo(playerListVbox, "playerListColumnDef.fxml", (PlayerListColumnDefController controller) -> {});
         addSeparator();
@@ -58,7 +58,7 @@ public class PlayerPanelController {
 
     @FXML
     public void createNewUser() {
-        ContextController.getAppCore().createNewUser(usernameTextField.getText());
+        ContextController.getGameEngine().createNewUser(usernameTextField.getText());
         loadPlayersInUI();
     }
 
@@ -76,11 +76,11 @@ public class PlayerPanelController {
 
     @FXML
     private void eliminatePlayer1(){
-        ContextController.getAppCore().resetActivePlayer(1);
+        ContextController.getGameEngine().resetActivePlayer(1);
     }
 
     @FXML
     private void eliminatePlayer2(){
-        ContextController.getAppCore().resetActivePlayer(2);
+        ContextController.getGameEngine().resetActivePlayer(2);
     }
 }

@@ -40,20 +40,16 @@ public class GameEngine {
         playerService.creatPlayer(username);
     }
 
-    public void deletePlayer(String username) {
-        playerService.deletePlayer(username);
-    }
-
     public void updatePlayer(Boolean status, String username) {
-        playerService.updatePlayerStatus(username, status);
+        playerService.updatePlayerGames(username, status);
     }
 
     public List<Player> getPlayerList() {
         return playerService.getAllPlayers();
     }
 
-    public Player [] getActivePlayers() {
-        return playerService.getActivePlayers();
+    public Player getActivePlayers(int playerNumber) {
+        return playerService.getActivePlayer(playerNumber);
     }
 
     public void setActivePlayer(String username) {

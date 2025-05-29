@@ -1,4 +1,4 @@
-package com.ui.controller.game;
+package com.ui.controller;
 
 import com.ui.tools.ContextController;
 import com.ui.util.FxmlLoader;

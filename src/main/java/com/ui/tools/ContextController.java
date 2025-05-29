@@ -33,7 +33,7 @@ public class ContextController {
         return errorLabel;
     }
 
-    public static GameEngine getAppCore(){
+    public static GameEngine getGameEngine(){
         return gameEngine;
     }
 

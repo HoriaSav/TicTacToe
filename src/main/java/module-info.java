@@ -9,4 +9,5 @@ module TicTacToe {
     opens com.ui.controller.player to javafx.fxml;
     opens com.ui.controller.app to javafx.fxml;
     opens com.ui.controller.game to javafx.fxml;
+    opens com.ui.controller to javafx.fxml;
 }

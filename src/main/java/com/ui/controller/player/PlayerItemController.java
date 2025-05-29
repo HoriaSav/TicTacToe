@@ -24,6 +24,6 @@ public class PlayerItemController {
 
     @FXML
     public void addPlayer() {
-        ContextController.getAppCore().setActivePlayer(usernameLabel.getText());
+        ContextController.getGameEngine().setActivePlayer(usernameLabel.getText());
     }
 }

@@ -24,11 +24,10 @@ public class GamePanelController {
                 Button clickedButton = (Button) event.getSource();
                 int position = Integer.parseInt(clickedButton.getText());
                 Image newImage;
-//                System.out.println(ContextController.getAppCore().getRound());
-                if (ContextController.getAppCore().getRound() % 2 == 0) {
-                    newImage = addMoveOnMatrix(position, ContextController.getAppCore().getActivePlayers()[0], "/icons/x.png");
+                if (ContextController.getGameEngine().getRound() % 2 == 0) {
+                    newImage = addMoveOnMatrix(position, ContextController.getGameEngine().getActivePlayers(1), "/icons/x.png");
                 } else {
-                    newImage = addMoveOnMatrix(position, ContextController.getAppCore().getActivePlayers()[1], "/icons/o.png");
+                    newImage = addMoveOnMatrix(position, ContextController.getGameEngine().getActivePlayers(2), "/icons/o.png");
                 }
                 ImageView imageView = (ImageView) clickedButton.getGraphic();
                 imageView.setImage(newImage);
@@ -39,34 +38,34 @@ public class GamePanelController {
     }
 
     private Image addMoveOnMatrix(int position, Player player, String iconPath) throws Exception {
-        System.out.print("Round " + ContextController.getAppCore().getRound() + ": " + player.getUsername() + " -> ");
-        ContextController.getAppCore().addMove(position, player);
+        System.out.print("Round " + ContextController.getGameEngine().getRound() + ": " + player.getUsername() + " -> ");
+        ContextController.getGameEngine().addMove(position, player);
         Image newImage = new Image(getClass().getResourceAsStream(iconPath));
         showGameOver(player.getUsername());
         return newImage;
     }
 
     private void showGameOver(String playerName) {
-        if (ContextController.getAppCore().isGameOver()) {
+        if (ContextController.getGameEngine().isGameOver()) {
             System.out.println("Game Over! Player: \"" + playerName + "\" won!");
             gameOver = true;
-            ContextController.getAppCore().resetGame();
+            ContextController.getGameEngine().resetGame();
             Label label = ContextController.getErrorLabel();
-            String player1 = ContextController.getAppCore().getActivePlayers()[0].getUsername();
-            String player2 = ContextController.getAppCore().getActivePlayers()[1].getUsername();
+            String player1 = ContextController.getGameEngine().getActivePlayers(1).getUsername();
+            String player2 = ContextController.getGameEngine().getActivePlayers(2).getUsername();
 
-            if (ContextController.getAppCore().getRound() == 9) {
+            if (ContextController.getGameEngine().getRound() == 9) {
                 label.setText("Game Over. It's a tie!");
-                ContextController.getAppCore().updatePlayer(null, player1);
-                ContextController.getAppCore().updatePlayer(null, player2);
+                ContextController.getGameEngine().updatePlayer(null, player1);
+                ContextController.getGameEngine().updatePlayer(null, player2);
             } else {
                 label.setText("Game Over. Player " + playerName + " won!");
-                if (ContextController.getAppCore().getRound() % 2 == 1) {
-                    ContextController.getAppCore().updatePlayer(Boolean.TRUE, player1);
-                    ContextController.getAppCore().updatePlayer(Boolean.FALSE, player2);
+                if (ContextController.getGameEngine().getRound() % 2 == 1) {
+                    ContextController.getGameEngine().updatePlayer(Boolean.TRUE, player1);
+                    ContextController.getGameEngine().updatePlayer(Boolean.FALSE, player2);
                 } else {
-                    ContextController.getAppCore().updatePlayer(Boolean.FALSE, player1);
-                    ContextController.getAppCore().updatePlayer(Boolean.TRUE, player2);
+                    ContextController.getGameEngine().updatePlayer(Boolean.FALSE, player1);
+                    ContextController.getGameEngine().updatePlayer(Boolean.TRUE, player2);
                 }
             }
             loadMainPanel();

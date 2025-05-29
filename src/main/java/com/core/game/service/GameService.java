@@ -10,7 +10,7 @@ import com.core.player.model.Player;
  * It maintains the state of the game and provides methods to perform game operations.
  * It also validates the user input for the game.
  */
-public class GameService {
+public class GameService implements IGameService{
     private Boolean[] matrix;
     private int round = 0;
 
@@ -18,6 +18,12 @@ public class GameService {
         matrix = new Boolean[9];
     }
 
+    @Override
+    public void startGame() {
+        //TODO: mabe delete later
+    }
+
+    @Override
     public void addMove(int position, Player player) throws Exception {
         if (UserInputValidator.isValidMove(position, matrix)) {
             if(player.getGameId() == 1){
@@ -35,14 +41,17 @@ public class GameService {
         }
     }
 
+    @Override
     public boolean isGameOver() {
         return round == 9 || UserInputValidator.isGameOver(matrix);
     }
 
+    @Override
     public int getRound() {
         return round;
     }
 
+    @Override
     public void resetGame(){
         matrix = new Boolean[9];
         round = 0;

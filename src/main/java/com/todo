@@ -1,7 +1,6 @@
 - css styling
 - junit tests
 - settings implementation
-- implement interfaces for better management of code (game and player service)
 - use dependency injection instead of direct instantiation
 
 
@@ -17,3 +16,4 @@ Problems:
 
 optional:
 - leaderboard
+- delete users
