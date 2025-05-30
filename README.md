@@ -57,9 +57,6 @@ MainApp.java # Entry point
 
 ---
 
-### 🌟 Planned Features
-
-```markdown
 ## 🧠 Planned Features
 
 - 🏆 **Leaderboard View**  
@@ -70,7 +67,7 @@ MainApp.java # Entry point
   
 - 🎨 **Custom Avatars**  
   Allow users to pick or upload their own profile images.
-```
 
-### 🙌 Credits
+
+## 🙌 Credits
 Created by Savin Horia Matei as a simple JavaFX GUI project.
